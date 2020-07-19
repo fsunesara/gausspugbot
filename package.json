@@ -1,0 +1,23 @@
+{
+  "name": "gausspugbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsunesara/gausspugbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fsunesara/gausspugbot/issues"
+  },
+  "homepage": "https://github.com/fsunesara/gausspugbot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
+}
