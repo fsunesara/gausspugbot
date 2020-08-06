@@ -1,11 +1,13 @@
+//require packages
 const Discord = require('discord.js');
 const fs = require('fs');
-const client = new Discord.Client({disableMentions: 'everyone'});
-
 const {prefix, token} = require('./config.json');
 
+//initialize bot
+const client = new Discord.Client({disableMentions: 'everyone'});
 client.commands = new Discord.Collection();
 
+//read command files
 fs.readdir('./cmds/', (err, files) => {
 	 if(err) console.error(err);
 
@@ -13,7 +15,7 @@ fs.readdir('./cmds/', (err, files) => {
 	 if(cmdFiles.length <= 0) {
 		 console.log('No commands to load!');
 		 return;
-	 }
+	}
 
 	 cmdFiles.forEach((f, i) => {
 		let props = require(`./cmds/${f}`);
@@ -23,6 +25,7 @@ fs.readdir('./cmds/', (err, files) => {
 
 client.once('ready', async () => {
 	console.log('Gauss is ready.');
+
 	// console.log('Generating invite link...');
 
 	// try {
@@ -35,8 +38,8 @@ client.once('ready', async () => {
 
 client.on('message', async message => {
 	if(message.author.bot) return;
-	//console.log(message.content);
-
+	if(message.channel.type === 'dm') return;
+	
 	let messageArray = message.content.split(/\s+/g);
 	let command = messageArray[0];
 	let args = messageArray.slice(1);
@@ -49,9 +52,6 @@ client.on('message', async message => {
 	} else {
 		message.channel.send('Error: Command not found.');
 	}
-
-
-
 });
 
 client.login(token);
