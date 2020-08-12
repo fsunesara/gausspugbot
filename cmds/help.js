@@ -5,9 +5,8 @@ module.exports.run = async (client, message, args) => {
 	if(cmd) {
 		message.channel.send(`we did it ${cmd.help.name}`);
 	} else {
-		message.channel.send('No such command exists!');
+		message.channel.send('Error: No such command exists.');
 	}
-	//message.channel.send(`args ${args}`);
 }
 
 module.exports.help = {

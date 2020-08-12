@@ -55,3 +55,7 @@ client.on('message', async message => {
 });
 
 client.login(token);
+
+client.on('error', (err) => console.error(err));
+client.on('warn', (err) => console.warn(err));
+// client.on('debug', (e) => console.info(e));
